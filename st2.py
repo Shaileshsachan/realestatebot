@@ -127,11 +127,6 @@ chips = [
 for idx, c in enumerate(chips):
     with chip_cols[idx]:
         if st.button(c, use_container_width=True, key=f"chip_{idx}"):
-            st.session_state.messages.append({
-                "role":"user","content":c,"agent":None,"caption":None,
-                "ts": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            })
-            st.session_state.pending_quick = c  # trigger send below
             st.rerun()
 
 # =============================
@@ -291,10 +286,6 @@ for i, m in enumerate(st.session_state.messages):
                 for j, s in enumerate(sugs):
                     with sug_cols[j]:
                         if st.button(s, key=f"sug_{i}_{j}", use_container_width=True):
-                            st.session_state.messages.append({
-                                "role":"user","content":s,"agent":None,"caption":None,
-                                "ts": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                            })
                             st.session_state.pending_quick = s
                             st.rerun()
             st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
