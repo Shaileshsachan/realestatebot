@@ -1,0 +1,24 @@
+curl -s -X POST "http://127.0.0.1:8000/chat" \
+  -H "accept: application/json" -H "Content-Type: multipart/form-data" \
+  -F "session_id=a2_t1" \
+  -F "text=How much notice do I need to give before vacating?" \
+  -F "location=London" | tee /tmp/a2_t1.json | jq .
+# Assert
+jq -e '.agent=="agent_2" and (.response|length>0)' /tmp/a2_t1.json && echo "A2-T1 ✅" || echo "A2-T1 ❌"
+
+
+curl -s -X POST "http://127.0.0.1:8000/chat" \
+  -H "accept: application/json" -H "Content-Type: multipart/form-data" \
+  -F "session_id=a2_t3" \
+  -F "text=What should I do if the landlord is not returning my deposit?" \
+  -F "location=Manchester" | tee /tmp/a2_t3.json | jq .
+jq -e '.agent=="agent_2" and (.response|length>0)' /tmp/a2_t3.json && echo "A2-T3 ✅" || echo "A2-T3 ❌"
+
+
+curl -s -X POST "http://127.0.0.1:8000/chat" \
+  -H "accept: application/json" -H "Content-Type: multipart/form-data" \
+  -F "session_id=fb_t1" \
+  -F "text=hey can you help?" \
+  -F "location=Unknown" | tee /tmp/fb_t1.json | jq .
+# Agent could be "fallback" (or suggested), but we ensure a response exists
+jq -e '.response|length>0' /tmp/fb_t1.json && echo "FB-T1 ✅" || echo "FB-T1 ❌"
