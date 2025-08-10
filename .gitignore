@@ -1,2 +1,21 @@
 .venv
 .chats
+# secrets
+.env
+*.env
+
+# python junk
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# envs
+.venv/
+venv/
+
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
