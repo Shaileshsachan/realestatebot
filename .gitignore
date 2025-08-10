@@ -19,3 +19,15 @@ venv/
 .DS_Store
 .vscode/
 .idea/
+.env
+*.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.DS_Store
+.vscode/
+.idea/
