@@ -127,6 +127,7 @@ chips = [
 for idx, c in enumerate(chips):
     with chip_cols[idx]:
         if st.button(c, use_container_width=True, key=f"chip_{idx}"):
+            # st.session_state.pending_quick = c
             st.rerun()
 
 # =============================
@@ -305,13 +306,18 @@ with col_right:
     st.caption("📎 Attach an image")
     if upload_slot is not None:
         st.image(upload_slot.getvalue(), caption=upload_slot.name, use_container_width=False, width=220)
+        
+        if st.button("Send image", key="send_img_btn", use_container_width=True):
+            st.session_state.pending_send_image = True
+            st.rerun()
 
 location = st.text_input("📍 Location (optional)", key="loc_input", placeholder="City or Country")
-st.caption("Press **Enter** to send • Attach an image on the right")
+st.caption("Press **Enter** to send text • Or click **Send image** after attaching a photo")
 
-# =============================
-# Send handler
-# =============================
+if st.session_state.get("pending_send_image") and user_text is None:
+    user_text = ""
+    st.session_state.pending_send_image = False
+
 if user_text is not None:
     # user turn
     msg_user = {
