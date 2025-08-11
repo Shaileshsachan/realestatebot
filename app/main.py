@@ -2,8 +2,14 @@ from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import JSONResponse
 from typing import Optional
 from app.langgraph_builder import build_graph
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Real Estate Bot")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://*.streamlit.app","https://fatakpay.streamlit.app"],
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+)
 _graph = build_graph()
 
 @app.post("/chat")
