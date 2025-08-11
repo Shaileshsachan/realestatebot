@@ -120,3 +120,8 @@ graph TD
     agent2 --> feedback
     fallback --> feedback
 ```
+
+## Screenshot
+Here’s how the chatbot looks in action:
+
+![Chatbot UI](screenshot.png)
