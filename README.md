@@ -30,8 +30,8 @@ Built with **FastAPI** (backend) and **Streamlit** (frontend), deployed for free
 ---
 
 ## Deployment Links
-- **Backend:** [https://<your-backend>.onrender.com](https://<your-backend>.onrender.com)
-- **Frontend:** [https://<your-app>.streamlit.app](https://fatakpay.streamlit.app)
+- **Backend:** [https://realestatebot-9s4j.onrender.com]
+- **Frontend:** [https://fatakpay.streamlit.app]
 
 ---
 
@@ -99,7 +99,16 @@ streamlit run st2.py
 ---
 
 ## Demo Video
-Will be done by EOD
+
+- **Tenancy FAQ Agent (Text-based)**  
+  [Watch Video](https://drive.google.com/file/d/1MgqEor-7wLvXdIxLPxQGyl7iiqT316bh/view?usp=drive_link)
+
+- **Fallback Agent**  
+  [Watch Video](https://drive.google.com/file/d/1OeNCYzPET64iia9mMret_QU9VJxGHOsN/view?usp=drive_link)
+
+- **Issue Detection & Troubleshooting Agent**  
+  [Watch Video](https://drive.google.com/file/d/1HP5kisLNvuvTgOfA99hl5UYleOlrj5Ds/view?usp=drive_link)
+
 
 ---
 
